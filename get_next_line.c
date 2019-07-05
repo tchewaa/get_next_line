@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 18:08:40 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/03 18:08:51 by tchewa           ###   ########.fr       */
+/*   Created: 2019/07/05 22:50:19 by tchewa            #+#    #+#             */
+/*   Updated: 2019/07/05 23:13:29 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char		*ft_strappend(char *s1, char *s2)
+static char			*ft_append_string(char *s1, char *s2)
 {
 	char	*temp;
 
@@ -21,55 +21,52 @@ static char		*ft_strappend(char *s1, char *s2)
 	return (temp);
 }
 
-static	char	*read_line(int fd, char *s)
+static	char		*ft_line_read(int fd, char *s)
 {
-	int		num;
+	int		i;
 	char	buff[BUFF_SIZE + 1];
 
-	while ((num = read(fd, buff, BUFF_SIZE)) > 0)
+	while (((i = read(fd, buff, BUFF_SIZE)) > 0))
 	{
-		buff[num] = '\0';
-		s = ft_strappend(s, buff);
+		buff[i] = '\0';
+		s = ft_append_string(s, buff);
 		if (ft_strchr(s, '\n') != NULL)
 			break ;
 	}
 	return (s);
 }
 
-static char		*ft_this(char *s, char **line)
+static char			*ft_new_line(char *s, char **line)
 {
 	char	*temp;
-	int		count;
+	int		i;
 
-	count = 0;
-	while (s[count] != '\n' && s[count] != '\0')
-		count++;
-	*line = ft_strsub(s, 0, count);
+	i = 0;
+	while (s[i] != '\n' && s[i] != '\0')
+		i++;
+	*line = ft_strsub(s, 0, i);
 	if (ft_strcmp(*line, s) == 0)
 		return (NULL);
 	else
 	{
-		temp = ft_strsub(s, count + 1, (ft_strlen(s + count + 1)));
+		temp = ft_strsub(s, i + 1, (ft_strlen(s + i + 1)));
 		free(s);
 	}
 	return (temp);
 }
 
-int				get_next_line(const int fd, char **line)
+int					get_next_line(const int fd, char **line)
 {
-	static char		*s[1024];
-	int				num;
-	char			buf[BUFF_SIZE + 1];
+	static char	*s;
 
-	num = 0;
-	if (!(*line) || fd < 0 || (read(fd, buf, 0) == -1))
+	if (!(*line) || fd < 0)
 		return (-1);
-	if (!(s[fd]))
-		s[fd] = ft_strnew(0);
-	if (!(ft_strchr(s[fd], '\n')))
-		s[fd] = read_line(fd, s[fd]);
-	if (num == 0 && !(ft_strlen(s[fd])))
+	if (!s)
+		s = ft_strnew(0);
+	if (!(ft_strchr(s, '\n')))
+		s = ft_line_read(fd, s);
+	if (ft_strlen(s) == 0)
 		return (0);
-	s[fd] = ft_this(s[fd], line);
+	s = ft_new_line(s, line);
 	return (1);
 }

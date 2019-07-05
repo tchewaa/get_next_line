@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/30 12:33:33 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/02 10:02:04 by tchewa           ###   ########.fr       */
+/*   Created: 2019/07/04 18:13:47 by tchewa            #+#    #+#             */
+/*   Updated: 2019/07/05 23:13:16 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
 
+# include <fcntl.h>
 # include "libft/libft.h"
+# include <sys/types.h>
+# include <sys/uio.h>
+# define BUFF_SIZE 32
 
 int		get_next_line(const int fd, char **line);
 
