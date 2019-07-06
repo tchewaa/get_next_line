@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:13:47 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/05 23:13:16 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/06 02:31:02 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
+# include <string.h>
 # include "libft/libft.h"
 # include <sys/types.h>
 # include <sys/uio.h>
