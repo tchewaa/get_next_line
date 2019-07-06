@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:14:14 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/05 22:48:03 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/06 02:56:44 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@
 
 int		main(void)
 {
-	int			fd;
+	//int			fd;
 	char		*line;
-	int			ret;
+	//int			ret;
 	int 		fd2;
 	int			i;
 
-	fd = open("lorem.txt", O_RDONLY);
+	/**fd = open("lorem.txt", O_RDONLY);
 	while (get_next_line(fd, &line))
 	{
 		printf("return: |%d| \t line: |%s|\n", ret, line);
 		ret++;
 		free(line);
-	}
+	}*/
 
-	printf("Printing a Book");
+	printf("Printing a Book\n");
 	
-	fd2 = open("lordrings.txt", O_RDONLY);
+	fd2 = open("number.txt", O_RDONLY);
 	while (get_next_line(fd2, &line))
 	{
-		printf("return: |%d| \t line: |%s|\n", i, line);
+		printf("\t line: |%s|\n",  line);
 		i++;
 		free(line);
 	}
