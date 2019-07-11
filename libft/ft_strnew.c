@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 08:52:23 by tchewa            #+#    #+#             */
-/*   Updated: 2019/06/10 15:00:51 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/11 11:03:06 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ char		*ft_strnew(size_t size)
 {
 	char *str;
 
-	str = malloc(size + 1);
-	if (str == NULL)
+	str = (char *)malloc(size + 1);
+	if (!str)
 	{
-		return (NULL);
+		return (0);
 	}
 	ft_bzero(str, size + 1);
 	return (str);
