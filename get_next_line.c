@@ -42,27 +42,28 @@ static char			*ft_new_line(char *s, char **line)
 	int		i;
 
 	i = 0;
+         Temp = s;
 	while (s[i] != '\n' && s[i] != '\0')
 		i++;
 	*line = ft_strsub(s, 0, i);
-	temp = ft_strsub(s, i + 1, (ft_strlen(s + i + 1)));
-	free(s);
-	return (temp);
+	S = ft_strsub(s, i + 1, (ft_strlen(s + i + 1)));
+	free(temp);
+	return (s);
 }
 
 int					get_next_line(const int fd, char **line)
 {
-	static char	*s;
+	static char	*s[1025];
 	char		buff[BUFF_SIZE + 1];
 
 	if (!(line) || fd < 0 || read(fd, buff, 0) == -1)
 		return (-1);
-	if (!s)
-		s = ft_strnew(0);
-	if (!(ft_strchr(s, '\n')))
-		s = ft_line_read(fd, s);
-	if (ft_strlen(s) == 0)
+	if (!s[fd])
+		s[fd] = ft_strnew(0);
+	if (!(ft_strchr(s[fd, '\n')))
+		s[fd] = ft_line_read(fd,s[fd]);
+	if (ft_strlen(s[fd]) == 0)
 		return (0);
-	s = ft_new_line(s, line);
+	s[fd] = ft_new_line(s[fd], line);
 	return (1);
 }
