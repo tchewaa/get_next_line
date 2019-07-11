@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:13:47 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/09 13:54:43 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/11 18:00:22 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "libft/libft.h"
 # include <sys/types.h>
 # include <sys/uio.h>
-# define BUFF_SIZE 4
+# define BUFF_SIZE 32
 
 int		get_next_line(const int fd, char **line);
 
