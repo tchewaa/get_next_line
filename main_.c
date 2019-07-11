@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 18:14:14 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/06 02:56:44 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/09 13:35:15 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int		main(void)
 		free(line);
 	}*/
 
-	printf("Printing a Book\n");
+	printf("Printing a Book");
 	
-	fd2 = open("number.txt", O_RDONLY);
+	fd2 = open("bible.txt", O_RDONLY);
 	while (get_next_line(fd2, &line))
 	{
-		printf("\t line: |%s|\n",  line);
+		printf("return: |%d| \t line: |%s|\n", i, line);
 		i++;
 		free(line);
 	}
