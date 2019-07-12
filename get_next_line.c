@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:50:19 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/11 17:53:37 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/12 10:57:52 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char			*ft_new_line(char *s, char **line)
 
 	i = 0;
 	temp = s;
-	while (s[i] != '\n' && s[i] != '\0')
+	while (s[i] != '\n' && s[i])
 		i++;
 	*line = ft_strsub(s, 0, i);
 	s = ft_strsub(s, i + 1, (ft_strlen(s + i + 1)));
