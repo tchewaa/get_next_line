@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:50:19 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/12 10:57:52 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/12 15:46:20 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int					get_next_line(const int fd, char **line)
 	if (!(line) || fd < 0 || read(fd, buff, 0) == -1)
 		return (-1);
 	if (!s[fd])
-		s[fd] = ft_strnew(0);
+		s[fd] = ft_strnew(1);
 	if (!(ft_strchr(s[fd], '\n')))
 		s[fd] = ft_line_read(fd, s[fd]);
 	if (ft_strlen(s[fd]) == 0)
