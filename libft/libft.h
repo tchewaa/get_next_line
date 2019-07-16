@@ -6,7 +6,7 @@
 /*   By: tchewa <tchewa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 09:31:26 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/09 14:56:12 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/16 17:25:24 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void		ft_bzero(void *s, size_t n);
 char		*ft_strnew(size_t size);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
+void		ft_strdel(char **str);
 
 #endif

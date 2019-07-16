@@ -6,7 +6,7 @@
 #    By: tchewa <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/30 09:51:34 by tchewa            #+#    #+#              #
-#    Updated: 2019/07/09 16:13:29 by tchewa           ###   ########.fr        #
+#    Updated: 2019/07/16 17:24:29 by tchewa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = ft_memset.c \
 	  ft_strnew.c \
 	  ft_strsub.c \
 	  ft_bzero.c \
-
+	  ft_strdel.c
 
 OBJ = *.o
 

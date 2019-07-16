@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:50:19 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/12 15:46:20 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/16 17:33:06 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,21 @@ static	char		*ft_line_read(int fd, char *s)
 	return (s);
 }
 
-static char			*ft_new_line(char *s, char **line)
+static char			*ft_new_line(char **s, char **line)
 {
 	char	*temp;
 	int		i;
 
 	i = 0;
-	temp = s;
-	while (s[i] != '\n' && s[i])
+	while ((*s)[i] != '\n' && (*s)[i])
 		i++;
-	*line = ft_strsub(s, 0, i);
-	s = ft_strsub(s, i + 1, (ft_strlen(s + i + 1)));
-	free(temp);
-	return (s);
+	*line = ft_strsub(*s, 0, i);
+	if ((*s)[i])
+		temp = ft_strsub(*s, i + 1, (ft_strlen(*s + i + 1)));
+	else
+		temp = NULL;
+	ft_strdel(s);
+	return (temp);
 }
 
 int					get_next_line(const int fd, char **line)
@@ -64,6 +66,6 @@ int					get_next_line(const int fd, char **line)
 		s[fd] = ft_line_read(fd, s[fd]);
 	if (ft_strlen(s[fd]) == 0)
 		return (0);
-	s[fd] = ft_new_line(s[fd], line);
+	s[fd] = ft_new_line(&(s[fd]), line);
 	return (1);
 }
