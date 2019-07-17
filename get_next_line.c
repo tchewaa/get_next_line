@@ -6,7 +6,7 @@
 /*   By: tchewa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:50:19 by tchewa            #+#    #+#             */
-/*   Updated: 2019/07/16 17:33:06 by tchewa           ###   ########.fr       */
+/*   Updated: 2019/07/17 15:49:16 by tchewa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char			*ft_new_line(char **s, char **line)
 
 int					get_next_line(const int fd, char **line)
 {
-	static char	*s[1025];
+	static char	*s[1024];
 	char		buff[BUFF_SIZE + 1];
 
 	if (!(line) || fd < 0 || read(fd, buff, 0) == -1)
